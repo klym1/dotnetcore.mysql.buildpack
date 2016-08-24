@@ -1,8 +1,9 @@
 #!/usr/bin/env bash
 # bin/release <build-dir>
 
+bash
 cat <<EOF
----
+ 
 addons:
   - cleardb:ignite
-EOF
+ EOF
