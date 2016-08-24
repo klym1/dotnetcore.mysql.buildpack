@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
-cat <<EOF
----
+cat <<EOF addons:- cleardb:ignite 
 EOF
 
