@@ -1,0 +1,6 @@
+{
+  "name": ".NET Core w/MySQL Buildback ",
+  "tagline": ".NET Core Buildback with MySQL DB Support for Heroku",
+  "body": "# .Net Core Buildpack for Heroku\r\n\r\nThis Buidpack can be used to compile and deploy .Net Core application, ASP.Net Application, ASP.Net MVC Application to Heroku. <br><br>\r\nThis Buildpack can build and deploy any such application that does not have any particular database dependency. In order to deploy applications with Microsoft SQL Server, My SQL, or Postgress SQL separate buildpacks are available and the links for those are provided below. <br><br>\r\nIn order to see the buildpack in action, you can click on the button below which will deploy a sample ASP.Net MVC application to heroku and you can see the build and deployment logs as the application gets deployed for you. This application was developed using Visual Studio 2015. \r\n<br><p>\r\n##\r\n<a href=\"https://heroku.com/deploy?template=https://github.com/heroku-softtrends/dotnetcore.mysql.sample/tree/master\">\r\n  <img src=\"https://www.herokucdn.com/deploy/button.svg\" alt=\"Deploy\">\r\n</a>\r\n",
+  "note": "Don't delete this file! It's used internally to help with page regeneration."
+}
