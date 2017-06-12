@@ -145,6 +145,9 @@ echo "dotnet publish ${PROJECT_JSON_FILE} --output ${BUILD_DIR} --configuration 
 dotnet publish ${PROJECT_JSON_FILE} --output ${BUILD_DIR} --configuration ${CORE_CONFIG} --framework netcoreapp1.0
 print "dotnet publish ended."
 
+PROJECT_NAME=$(grep -Po '"'"outputName"'"\s*:\s*"\K([^"]*)'  ${PROJECT_JSON_FILE})
+print "${PROJECT_NAME}.dll has been created."
+
 print "Export variables"
 
 mkdir -p ${BUILD_DIR}/.profile.d
