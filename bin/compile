@@ -144,22 +144,3 @@ print "dotnet publish starts."
 echo "dotnet publish ${PROJECT_JSON_FILE} --output ${BUILD_DIR} --configuration ${CORE_CONFIG} --framework netcoreapp1.0"
 dotnet publish ${PROJECT_JSON_FILE} --output ${BUILD_DIR} --configuration ${CORE_CONFIG} --framework netcoreapp1.0
 print "dotnet publish ended."
-
-PROJECT_NAME=$(grep -Po '"'"outputName"'"\s*:\s*"\K([^"]*)'  ${PROJECT_JSON_FILE})
-print "${PROJECT_NAME}.dll has been created."
-
-mkdir -p ${BUILD_DIR}/.profile.d
-cat <<EOF >${BUILD_DIR}/.profile.d/000_apt.sh
-export PATH="$HOME/dotnet:$HOME/.apt/usr/bin:$PATH"
-export LD_LIBRARY_PATH="\$HOME/.apt/usr/lib/x86_64-linux-gnu:\$HOME/.apt/usr/lib/i386-linux-gnu:\$HOME/.apt/usr/lib:\$LD_LIBRARY_PATH"
-export LIBRARY_PATH="\$HOME/.apt/usr/lib/x86_64-linux-gnu:\$HOME/.apt/usr/lib/i386-linux-gnu:\$HOME/.apt/usr/lib:\$LIBRARY_PATH"
-export INCLUDE_PATH="\$HOME/.apt/usr/include:\$INCLUDE_PATH"
-export CPATH="\$INCLUDE_PATH"
-export CPPPATH="\$INCLUDE_PATH"
-export PKG_CONFIG_PATH="\$HOME/.apt/usr/lib/x86_64-linux-gnu/pkgconfig:\$HOME/.apt/usr/lib/i386-linux-gnu/pkgconfig:\$HOME/.apt/usr/lib/pkgconfig:\$PKG_CONFIG_PATH"
-EOF
-
-print "Procfile setting"
-cat <<EOF >${BUILD_DIR}/Procfile
-web: dotnet ${HOME}/${PROJECT_NAME}.dll http://0.0.0.0:\$PORT ${CORE_ENV}
-EOF
